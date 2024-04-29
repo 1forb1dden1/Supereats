@@ -4,7 +4,7 @@ import Home from './views/Home/Home'
 import Login from './views/Login/Login'
 import Signup from './views/SignUp/Signup';
 import Client from './views/ClientManagement/Client'
-import ClientMenuItem from './components/ClientMenuItem/ClientMenuItem';
+import ClientMenuItem from './views/ClientMenuItem/ClientMenuItem';
 
 const App = () => {
   return (

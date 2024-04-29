@@ -37,7 +37,7 @@ export function editAMenuItem(dir: string, name: string, price: number, descript
 
 
 /*Add MenuItem to FireStore*/
-export function addANewMenuItem (name: string, price: number, description: string, imageuri: string) {
+export async function addANewMenuItem (name: string, price: number, description: string, imageuri: string) {
 
   const newDoc = addDoc(collection(firestore, 'menuItem'), {
     name: name,
