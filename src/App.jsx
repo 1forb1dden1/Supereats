@@ -5,10 +5,12 @@ import Login from './views/Login/Login'
 import Signup from './views/SignUp/Signup';
 import Client from './views/ClientManagement/Client'
 import ClientMenuItem from './views/ClientMenuItem/ClientMenuItem';
+import { AuthProvider } from './contexts/authContext';
 
 const App = () => {
   return (
     <div>
+      <AuthProvider>
       <Routes>
       <Route path="/" element={<Home/>} />
         <Route path="/Client" element={<Client/>}/>
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>} />
       </Routes>
+      </AuthProvider>
     </div>
   );
 };

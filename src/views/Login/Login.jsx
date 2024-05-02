@@ -1,18 +1,33 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { doSignInWithEmailAndPassword } from "../../../firebase/auth";
+import { useAuth } from "../../contexts/authContext";
 import "./Login.css";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-function Login() {
+const auth = getAuth();
+
+onAuthStateChanged(auth, user => { // checks what user is logged in and prints out their email
+	if(user != null) {
+		console.log("Signed in as", user.email);
+	}
+});
+
+const Login = () => {
+  const { userLoggedIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log(email, password);
-    // You can add code here to send the login information to your backend or perform authentication.
+    await doSignInWithEmailAndPassword(email,password);
+    console.log("signed in");
+    navigate("/");
   };
+
+  
 
   const handleSignupClick = () => {
     // Navigate to the login page when the "Login" button is clicked

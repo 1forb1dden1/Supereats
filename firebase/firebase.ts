@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, collection, addDoc, updateDoc, getDocs, deleteDoc } from "firebase/firestore"; // Import getFirestore from the Firebase SDK
 import { deleteObject, getStorage, ref } from "firebase/storage";
-
+import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -19,6 +19,8 @@ const firestore = getFirestore();
 const storage = getStorage();
 const storageRef = ref(storage);
 const imagesRef = ref(storage, 'images');
+const auth = getAuth(app);
+
 
 
 
@@ -66,3 +68,5 @@ export async function deleteMenuItem(collectionID: string, docID: string) {
 }
 
 deleteMenuItem("menuItem", "3XiIGbzc6xBHKDDl69Zl");
+
+export { app, auth };
