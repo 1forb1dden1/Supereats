@@ -1,60 +1,56 @@
-.MenuItemContainer {
+.menu-container {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
     align-items: center;
+    justify-content: center; /* This centers the .menu-grid within the .menu-container */
 }
-.menu-wrapper {
+
+.menu-grid {
     display: flex;
-    flex-direction: row; 
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center; 
-    width: 100%; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Cards spawn from the left */
+    width: 100%; /* Adjust this if needed to match your design */
+    max-width: 2000px; /* Or whatever max width you prefer */
+    margin-bottom: 30px;
 }
 
-
-.MenuList-Container {
+.menu-item-card {
     display: flex;
     flex-direction: column;
     margin: 10px;
     border: 1px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
-    border-radius: 0px;
     padding: 10px;
-    width: 20%;
-    min-width: 250px; 
-    min-height: 530px;
+    width: 400px;
+    min-height: 550px;
     text-align: center;
     position: relative;
 }
 
-
-.MenuList-Image {
+.menu-item-image {
     width: 250px;
     height: 250px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.MenuList-Header {
+.menu-item-title {
     font-size: 100%;
 }
 
-.MenuList-Btn {
+.menu-item-button {
     width: 100px;
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: auto;
     cursor: pointer;
 }
-.MenuList-Delete-Btn{
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.MenuList-Description {
+
+.menu-item-description {
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: normal; 

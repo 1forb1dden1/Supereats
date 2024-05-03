@@ -51,7 +51,7 @@ function ClientMenuItem() {
             <p className="MenuList-Description">Description: {item.description}</p>
             <button className="MenuList-Btn" onClick={() => editMenuItem(item)}>Edit Item</button>
             <br/>
-            <button type="submit" onClick={() => handleDelete(item)}>Delete Item</button>
+            <button className ="MenuList-Delete-Btn" onClick={() => handleDelete(item)}>Delete Item</button>
         </div>
     ));
 

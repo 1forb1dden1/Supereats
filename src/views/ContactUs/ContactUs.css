@@ -14,7 +14,7 @@
 .infor-section {
   background-color: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
@@ -31,31 +31,32 @@
 .enter-section {
   background-color: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 1px;
   box-shadow: 0 4px 8px rgba(70, 213, 98, 0.1);
   width: 100%;
   max-width: 600px;
 }
 
 .Input {
-  width: 100%;
+  width: 583px;
   padding: 8px;
   margin: 10px 0;
-  border-radius: 5px;
+  border-radius: 1px;
   border: 1px solid #ccc;
   display: block;
 }
 
 .sub-button {
-  padding: 10px 20px;
+  display: block;  /* Ensures that the button is a block-level element */
+  width: 25%;      /* Width of the button */
+  padding: 10px 20px; /* Padding for the button */
+  margin: 20px auto; /* Auto margins on left and right for horizontal centering */
   border-radius: 50px;
   border: none;
-  background-color: rgb(17, 110, 31); /* Thematic color from the landing page */
+  background-color: rgb(85, 110, 31); /* Thematic color from the landing page */
   color: white;
   cursor: pointer;
   font-weight: bold;
-  width: 100%;
-  margin-top: 10px;
 }
 
 /* Labels styling */

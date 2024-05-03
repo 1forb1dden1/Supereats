@@ -48,12 +48,15 @@ function ContactUs() {
         <div className="ContactUs-container">
             <form onSubmit={handleSubmit} className="enter-section">
                 <input type="hidden" name="access_key" value="a2efa853-d079-44a2-bdf6-bd4cdd803d0c"/>
+                
                 <label htmlFor="Name">Name</label>
-                <input type="text" name="Name" placeholder="Your Name" className="Input" required/>
+                <input name="Name" placeholder="Your Name" className="Input" required/>
+
                 <label htmlFor="Email">Email</label>
-                <input type="email" name="Email" placeholder="Your Email" className="Input" required/>
+                <input name="Email" placeholder="Your Email" className="Input" required/>
                 <label htmlFor="Message">Message</label>
-                <textarea name="Message" placeholder="Give us your thought!" className="Input" required/>  
+
+                <input name="Message" placeholder="Give us your thoughts!" className="Input" required/>  
                 <button className="sub-button" type="submit" disabled={isSubmitting}>
                     {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>

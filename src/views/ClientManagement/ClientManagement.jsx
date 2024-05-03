@@ -30,7 +30,7 @@ function ClientManagement() {
   
     reader.onloadend = () => {
       //Firebase Max Kb allowed for image URI is 1048487 bytes
-      compressImage(reader.result, 1048487, (compressedImage) => {
+      compressImage(reader.result, 100000, (compressedImage) => {
         setImageUri(compressedImage);
       });
     };
@@ -46,30 +46,34 @@ function ClientManagement() {
     image.src = dataUrl;
   
     image.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
+      let canvas = document.createElement('canvas');
+      let ctx = canvas.getContext('2d');
   
-      let width = image.width;
-      let height = image.height;
-      let scaleFactor = 1;
+      let width = image.naturalWidth;
+      let height = image.naturalHeight;
+      let reductionFactor = 1;
   
-      // Calculate the scaling factor to fit the image within the maxSize
-      if (image.size > maxSize) {
-        scaleFactor = Math.sqrt(maxSize / image.size);
-        width *= scaleFactor;
-        height *= scaleFactor;
+      // If the initial dimensions are too large, reduce them
+      while (width * height > maxSize) {
+        reductionFactor *= 0.5;
+        width = Math.round(image.naturalWidth * reductionFactor);
+        height = Math.round(image.naturalHeight * reductionFactor);
       }
   
       canvas.width = width;
       canvas.height = height;
-  
-      // Draw the image onto the canvas with the new dimensions
       ctx.drawImage(image, 0, 0, width, height);
   
-      // Get the compressed data URL from the canvas
-      const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+      // Start with a high quality
+      let quality = 1.0;
+      let compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
   
-      // Call the callback function with the compressed data URL
+      // Reduce quality to meet maxSize requirement
+      while (compressedDataUrl.length > maxSize && quality > 0.1) {
+        quality -= 0.1;
+        compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+      }
+  
       callback(compressedDataUrl);
     };
   };

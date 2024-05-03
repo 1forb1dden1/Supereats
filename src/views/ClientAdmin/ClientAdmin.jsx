@@ -7,7 +7,7 @@ function ClientAdmin() {
             <h1>This is the admin page</h1>
             <p>In this section of the website, the administrator of the restaurant will be able to update restaurant items with the following functions.</p>
             <div>
-                <Link to="/client" style={{ textDecoration: 'none' }}>
+                <Link to="/clientManagement" style={{ textDecoration: 'none' }}>
                     <button style={{ margin: '10px', padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
                         Create New Menu Item
                     </button>
