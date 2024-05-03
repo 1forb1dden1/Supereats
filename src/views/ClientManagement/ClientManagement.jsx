@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import './Client.css';
+import './ClientManagement.css';
 import * as firebase from '../../../firebase/firebase';
 
-function Client() {
+function ClientManagement() {
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState('');
@@ -80,27 +80,29 @@ function Client() {
   };
 
   return (
-    <div className="Form">
-      <h1>Create new Menu Item</h1>
-      <p>Title</p>
-      <input type="text" value={title} onChange={(event) => handleInputChange('title', event)} />
+    <div className = "client-container">
+      <div className="Client-Form">
+        <h1>Create new Menu Item</h1>
+        <p>Title</p>
+        <input type="text" value={title} onChange={(event) => handleInputChange('title', event)} />
 
-      <p>Price</p>
-      <input type="text" value={price} onChange={(event) => handleInputChange('price', event)} />
+        <p>Price</p>
+        <input type="text" value={price} onChange={(event) => handleInputChange('price', event)} />
 
-      <p>Description</p>
-      <input type="text" value={description} onChange={(event) => handleInputChange('description', event)} />
+        <p>Description</p>
+        <input type="text" value={description} onChange={(event) => handleInputChange('description', event)} />
 
-      <p>Image</p>
-      <input type="file" className = "DragDrop-container" onChange={handleImageUpload} />
-      <br/>
-      <br/>
-      {imageUri && <img src={imageUri} alt="Uploaded" style={{ maxWidth: '200px' }} />}
+        <p>Image</p>
+        <input type="file" className = "DragDrop-container" onChange={handleImageUpload} />
+        <br/>
+        <br/>
+        {imageUri && <img src={imageUri} alt="Uploaded" style={{ maxWidth: '200px' }} />}
 
-      <br/>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
+        <br/>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
+      </div>
     </div>
   );
 }
 
-export default Client;
+export default ClientManagement;

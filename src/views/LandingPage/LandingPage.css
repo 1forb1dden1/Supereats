@@ -1,0 +1,93 @@
+.landing-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 0px;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.title-large, .title-medium, .title-small {
+    margin: 10px 0;
+}
+
+.title-large {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.title-medium {
+    font-size: 2rem;
+    color: #000000;
+}
+
+.title-small {
+    font-size: 1.5rem;
+    color: #000000;
+}
+
+.text-strong, .paragraph {
+    color: #000000;
+    font-size: 1rem;
+}
+
+.menu-button {
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: rgb(119, 228, 152);
+}
+
+.promotion-section {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 960px;
+    border-radius: 8px;
+}
+
+.promotion-container {
+    display: flex;
+    justify-content: space-between; /* Adjusted to space-between to evenly distribute the boxes */
+    align-items: stretch;
+    width: 100%;
+    max-width: 1200px; /* Set a max width for better control over the layout */
+}
+
+.best-dishes {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    flex: 1; /* Flex 1 ensures that each dish will take equal space */
+    margin: 10px; /* Add margin for some spacing between the dishes */
+    text-align: center;
+}
+
+.dish-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .best-dishes {
+        flex: 1 0 30%; /* Ensure minimum width of 30% to keep three items in one row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .best-dishes {
+        flex: 1 0 100%; /* Allow stacking on very small screens */
+    }
+}

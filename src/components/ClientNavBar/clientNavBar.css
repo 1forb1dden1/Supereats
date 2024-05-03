@@ -1,0 +1,40 @@
+.custom-navbar {
+    background-color: #000000; 
+    color: white;
+    padding: 10px 20px; 
+}
+
+.navbar-container {
+    max-width: 1200px; 
+    width: 100%; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.navbar-items {
+    list-style: none; 
+    display: flex;
+    padding: 0;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+}
+
+.nav-item {
+    margin: 0 15px; 
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: #3a3939; 
+    border-radius: 5px; 
+}

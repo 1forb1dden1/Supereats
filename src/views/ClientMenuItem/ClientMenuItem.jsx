@@ -58,9 +58,9 @@ function ClientMenuItem() {
     return (
         <div className="MenuItemContainer">
             <h1>Menu Item ClientSide</h1>
-            <div className="menu-wrapper">
-                {menuItemsDisplay}
-            </div>
+                <div className="menu-wrapper">
+                    {menuItemsDisplay}
+                </div>
             {isModalOpen && <Modal currentItem={currentItem} onClose={() => setIsModalOpen(false)} />}
         </div>
     );

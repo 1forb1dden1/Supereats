@@ -88,10 +88,9 @@ export default function Modal({currentItem, onClose}) {
         <div className="modal">
           <div onClick={onClose} className="overlay"></div>
           <div className="modal-content">
-            <div className="Form">
+            <div className="Client-Form">
               <h1>Edit This Menu Item</h1>
-              <p>MenuItem ID</p>
-              <p>{currentItem.id}</p>
+              <p>MenuItem ID: {}{currentItem.id}</p>
               <p>Title</p>
               <input type="text" value={title} onChange={(event) => handleInputChange('title', event)} />
 
@@ -107,9 +106,7 @@ export default function Modal({currentItem, onClose}) {
                 <input type="file" style={{ display: 'none' }} onChange={handleImageUpload} />
               </label>
               <br/>
-              <br/>
               {imageUri && <img src={imageUri} alt="Uploaded" style={{ maxWidth: '200px' }} />}
-
               <br/>
               <button type="submit" onClick={handleSubmit}>Submit</button>
             </div>

@@ -1,30 +1,35 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Home from './views/Home/Home';
-import Client from './views/ClientManagement/Client';
+import ClientManagement from './views/ClientManagement/ClientManagement';
 import ClientMenuItem from './views/ClientMenuItem/ClientMenuItem';
 import NavBar from './components/Navbar/Navbar';
+import ClientNavBar from './components/ClientNavBar/clientNavBar';
 import AboutUs from './views/AboutUs/AboutUs'
 import Cart from './views/Cart/Cart'
 import ContactUs from './views/ContactUs/ContactUs'
 import Login from './views/Login/Login'
 import Signup from './views/Signup/Signup'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword'
+import ClientAdmin from './views/ClientAdmin/ClientAdmin';
+import LandingPage from './views/LandingPage/LandingPage';
 import { AuthProvider } from './contexts/authContext';
 
 const App = () => {
   const location = useLocation();
   
   // Determine if NavBar should be shown
-  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us' ].includes(location.pathname);
+  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/' ].includes(location.pathname);
+  const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin',].includes(location.pathname);
 
   return (
     <div>
       {showNavBar && <NavBar />}
+      {showClientNavBar && <ClientNavBar/> }
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Client" element={<Client />} />
+          <Route path="/" element={<LandingPage/>} />
+          <Route path ="/admin" element={<ClientAdmin/>} />
+          <Route path="/ClientManagement" element={<ClientManagement />} />
           <Route path="/MenuItem" element={<ClientMenuItem />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Signup/>} />

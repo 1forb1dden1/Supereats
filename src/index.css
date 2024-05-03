@@ -6,6 +6,9 @@
   color: black;
   background: #E7E7E7;
   font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 
 .pacifico-regular {
@@ -14,8 +17,10 @@
   font-style: normal;
 }
 
-body {
+html, body {
   margin: 0 !important;
+  height: 100%;
+  min-height: 100%;
 }
 
 .m-0 {

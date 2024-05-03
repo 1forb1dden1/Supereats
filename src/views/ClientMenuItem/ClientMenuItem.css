@@ -1,26 +1,51 @@
+.MenuItemContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
 .menu-wrapper {
     display: flex;
-    flex-direction: row;  /* Aligns children (MenuList-Container divs) in a row */
-    flex-wrap: wrap;  /* Allows items to wrap onto the next line as needed */
+    flex-direction: row; /* Aligns children in a row */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line as needed */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Ensures the wrapper takes full width of its container */
 }
+
 
 .MenuList-Container {
     margin: 10px;
-    border: 1px solid rgb(255, 255, 255);  
+    border: 1px solid rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
     border-radius: 0px;
     padding: 20px;
     width: 20%;
+    min-width: 250px;  /* Prevents the box from becoming too small */
     text-align: center;
 }
 
+
 .MenuList-Image {
-    max-width: 75%;
-    max-height: 75%;  
+    width: 250px;
+    height: 250px;
 }
 
-.MenuList-Header{
+.MenuList-Header {
     font-size: 100%;
 }
-.MenuList-Description{
+
+.MenuList-Description {
     font-size: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 800px) {
+    .MenuList-Container {
+        width: 50%;  /* Adjust to 2 items per row on smaller screens */
+    }
 }

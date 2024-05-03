@@ -1,105 +1,66 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form';
-//import emailjs from '@emailjs/browser';
-import '../ContactUs/ContactUs.css'
+import React, { useState } from "react";
+import "./ContactUs.css";
 
-const ContactForm = () => {
-    const {
-      register,
-      handleSubmit,
-      reset,
-      formState: { errors }
-    } = useForm();
-    
-    const onSubmit = async (data) => {
-      const { name, email, subject, message } = data;
-      
-      console.log('Name: ', name);
-      console.log('Email: ', email);
-      console.log('Subject: ', subject);
-      console.log('Message: ', message);
+function ContactUs() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [message, setMessage] = useState(null);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault(); 
+        setIsSubmitting(true); // Set submitting state to true
+        setMessage(null); // Clear previous messages
+
+        const formData = new FormData(event.target); 
+        const data = {
+            Name: formData.get('Name'),
+            Email: formData.get('Email'),
+            Message: formData.get('Message'),
+        };
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({
+                    access_key: formData.get('access_key'),
+                    ...data,
+                }),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                setMessage('Form submitted successfully. Thank you!');
+                event.target.reset(); // Reset the form fields
+            } else {
+                throw new Error(result.message || "An error occurred. Please try again.");
+            }
+        } catch (error) {
+            setMessage(`Error: ${error.message}`);
+        } finally {
+            setIsSubmitting(false); // Reset submitting state regardless of the outcome
+        }
     };
-  
+
     return (
-      <div className='ContactForm'>
-            <div className='col-12 text-center'>
-                <form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-                  {/* Row 1 of form */}
-                  <div className='row formRow'>
-                    <div className='col-6'>
-                      <label>First Name</label>
-                      <input
-                        type='text'
-                        name='fName'
-                        {...register('name', {
-                          required: { value: true, message: 'Please enter your name' },
-                          maxLength: {
-                            value: 30,
-                            message: 'Please use 30 characters or less'
-                          }
-                        })}
-                        className='form-control formInput'
-                        placeholder='First Name'
-                      ></input>
-                      {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
-                    </div>
-                    <div className='col-6'>
-                      <label>Last Name</label>
-                      <input
-                        type='text'
-                        name='lName'
-                        {...register('name', {
-                          required: { value: true, message: 'Please enter your name' },
-                          maxLength: {
-                            value: 30,
-                            message: 'Please use 30 characters or less'
-                          }
-                        })}
-                        className='form-control formInput'
-                        placeholder='Last Name'
-                      ></input>
-                      {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
-                    </div>
-                    <div className='col-6'>
-                    <label>Email</label>
-                      <input
-                        type='email'
-                        name='email'
-                        {...register('email', {
-                          required: true,
-                          pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                        })}
-                        className='form-control formInput'
-                        placeholder='Email address'
-                      ></input>
-                      {errors.email && (
-                        <span className='errorMessage'>Please enter a valid email address</span>
-                      )}
-                    </div>
-                  </div>
-               
-                  <div className='row formRow'>
-                    <div className='col'>
-                    <label>Message</label>
-                      <textarea
-                        rows={3}
-                        name='message'
-                        {...register('message', {
-                          required: true
-                        })}
-                        className='form-control formInput'
-                        placeholder='Message'
-                      ></textarea>
-                      {errors.message && <span className='errorMessage'>Please enter a message</span>}
-                    </div>
-                  </div>
-                  <button className='submit-btn' type='submit'>
-                    Submit
-                  </button>
-                </form>
-            </div>
-      </div>
+        <div className="ContactUs-container">
+            <form onSubmit={handleSubmit} className="enter-section">
+                <input type="hidden" name="access_key" value="a2efa853-d079-44a2-bdf6-bd4cdd803d0c"/>
+                <label htmlFor="Name">Name</label>
+                <input type="text" name="Name" placeholder="Your Name" className="Input" required/>
+                <label htmlFor="Email">Email</label>
+                <input type="email" name="Email" placeholder="Your Email" className="Input" required/>
+                <label htmlFor="Message">Message</label>
+                <textarea name="Message" placeholder="Give us your thought!" className="Input" required/>  
+                <button className="sub-button" type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
+            </form>
+            {message && <div className="feedback-message">{message}</div>}
+        </div>
     );
-  };
-  
-  export default ContactForm;
+}
+
+export default ContactUs;

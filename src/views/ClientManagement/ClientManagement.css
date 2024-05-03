@@ -1,0 +1,36 @@
+/* Client.css */
+.client-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Using viewport height to make it take the full height of the viewport */
+  width: 100%;    /* Ensuring it takes full width, adjust as needed */
+}
+
+.Client-Form {
+  display: flex;
+  flex-direction: column; /* Stack the children vertically */
+  align-items: center; /* Center children horizontally in the cross axis */
+  justify-content: center; /* Center children vertically in the main axis */
+  gap: 0px; /* Adds space between the children */
+
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin: auto; /* Helps in centering the form itself if the outer container is wider */
+}
+
+.DragDrop-container {
+  border: 2px dashed #000000; /* Add border */
+  padding: 20px; /* Add padding for spacing */
+  display: inline-block; /* Display as inline block */
+}
+
+.DragDrop-input {
+  display: none; /* Hide the input */
+}
+
+
