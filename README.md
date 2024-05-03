@@ -2,6 +2,11 @@
 1. Download IDE (Recommend VS Code)
 2. Install Node.js onto system
 
+# Run the Server
+The server will be required to be turned on in order to call the stripe api to take payments. 
+1. CD into Stripe Folder directory
+2. Type node server.cjs
+   
 # Run Application
 1. Clone Repository
 2. CD into root of the repository in a IDE of your choice
