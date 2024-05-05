@@ -8,7 +8,7 @@ import AboutUs from './views/AboutUs/AboutUs'
 import Cart from './views/Cart/Cart'
 import ContactUs from './views/ContactUs/ContactUs'
 import Login from './views/Login/Login'
-import Signup from './views/Signup/Signup'
+import Signup from './views/SignUp/Signup'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword'
 import ClientAdmin from './views/ClientAdmin/ClientAdmin';
 import LandingPage from './views/LandingPage/LandingPage';
