@@ -13,13 +13,15 @@ import ForgotPassword from './views/ForgotPassword/ForgotPassword'
 import ClientAdmin from './views/ClientAdmin/ClientAdmin';
 import LandingPage from './views/LandingPage/LandingPage';
 import Menu from './views/Menu/Menu';
+import OrderHistory from './views/OrderHistory/OrderHistory';
+import OrderTracker from './views/OrderTracker/OrderTracker';
 import { AuthProvider } from './contexts/authContext';
 
 const App = () => {
   const location = useLocation();
   
   // Determine if NavBar should be shown
-  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu' ].includes(location.pathname);
+  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker' ].includes(location.pathname);
   const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin',].includes(location.pathname);
 
   return (
@@ -39,6 +41,8 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs/>} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/contact-us" element={<ContactUs/>} />
+          <Route path ="/order-history" element={<OrderHistory/>} />
+          <Route path ="/order-tracker" element={<OrderTracker/>} />
         </Routes>
         
       </AuthProvider>

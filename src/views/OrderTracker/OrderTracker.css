@@ -1,0 +1,77 @@
+.tracking-container {
+    display: flex;
+    background-color: white;
+    padding-left: 300px;
+    padding-right: 300px;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.tracking-container h1 {
+    color: darkolivegreen;
+    margin-top: 70px;
+    font-size: 40px;
+}
+
+.tracking-container p1 {
+    color: darkolivegreen;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.progress-step {
+    flex: 1;
+    position: relative;
+    display: flex;
+    margin: 0;
+}
+
+.step-name {
+    margin-top: 175px;
+    font-weight: 700;
+    padding: 0 40px;
+    color: darkolivegreen;
+
+}
+
+.progress-step::before {
+    content: '';
+    width: 50%;
+    height: 70px;
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    margin-left: 35px;
+}
+
+.progress-step.completed::before {
+    background-color: darkolivegreen;
+    content: '';
+    width: 50%;
+    height: 70px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    margin-left: 35px;
+}
+
+.img {
+    max-width: 355px; 
+    height: 325px; 
+    margin-top: 30px;
+}
+
+@media(max-width: 1000px) {
+    .right img {
+        display: none;
+    }
+}
