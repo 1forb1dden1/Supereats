@@ -8,7 +8,7 @@ import AboutUs from './views/AboutUs/AboutUs'
 import Cart from './views/Cart/Cart'
 import ContactUs from './views/ContactUs/ContactUs'
 import Login from './views/Login/Login'
-import Signup from './views/SignUp/Signup'
+import Signup from './views/Signup/Signup'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword'
 import ClientAdmin from './views/ClientAdmin/ClientAdmin';
 import LandingPage from './views/LandingPage/LandingPage';
@@ -16,6 +16,7 @@ import Menu from './views/Menu/Menu';
 import OrderHistory from './views/OrderHistory/OrderHistory';
 import OrderTracker from './views/OrderTracker/OrderTracker';
 import { AuthProvider } from './contexts/authContext';
+import { CartProvider } from './utils/CartContext';
 
 const App = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const App = () => {
       {showNavBar && <NavBar />}
       {showClientNavBar && <ClientNavBar/> }
       <AuthProvider>
+      <CartProvider>
         <Routes>
           <Route path="/" element={<LandingPage/>} />
           <Route path ="/admin" element={<ClientAdmin/>} />
@@ -44,7 +46,7 @@ const App = () => {
           <Route path ="/order-history" element={<OrderHistory/>} />
           <Route path ="/order-tracker" element={<OrderTracker/>} />
         </Routes>
-        
+        </CartProvider>
       </AuthProvider>
     </div>
   );

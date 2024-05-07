@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { useCart } from '../../utils/CartContext';
 import '../Cart/Cart.css'
 import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js"
@@ -7,23 +8,14 @@ const stripePromise = loadStripe("pk_test_51NQQB4JZsPRc9TeiWTLMyIWQUmdxUt8VHK7RO
 
 function Cart() {
   const [clientSecret, setClientSecret] = useState("");
+  const { removeFromCart } = useCart();
 
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: "Pizza", price: 10, quantity: 2 },
-    { id: 2, name: "Burger", price: 5, quantity: 1 },
-    { id: 3, name: "Salad", price: 7, quantity: 3 },
-  ]);
+ const {cartItems} = useCart();
 
-  const removeFromCart = (index) => {
-    const updatedCart = [...cartItems];
-    updatedCart.splice(index, 1);
-    setCartItems(updatedCart);
-  };
 
   const calculateTotal = () => {
     return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
+      (total, item) => total + item.price * item.quantity,0
     );
   };
 
@@ -63,7 +55,8 @@ function Cart() {
                   <p className="item-name">{item.name}</p>
                   <p className="item-price">${item.price}</p>
                   <p className="item-quantity">Quantity: {item.quantity}</p>
-                  <button onClick={() => removeFromCart(index)}>Remove</button>
+                  <img src={item.imageUri} alt={item.name} style={{ maxWidth: "100px" }} />
+                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
                 </div>
               </div>
             ))}
@@ -74,7 +67,7 @@ function Cart() {
         <h2 className="pacifico-regular">Cart Summary</h2>
         <p className="total">Total: ${calculateTotal()}</p>
         <form action="http://localhost:4242/create-checkout-session" method="POST">
-            <input type="hidden" name="amount" value={125} /> {/*Pass value 15 for pricing*/}
+            <input type="hidden" name="amount" value={ `${calculateTotal()}` } />
             <button type = "checkout-btn">Pay Now!</button>
         </form>
       </div>

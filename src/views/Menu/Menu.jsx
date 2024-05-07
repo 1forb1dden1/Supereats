@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useCart } from '../../utils/CartContext';
 import * as firebase from '../../../firebase/firebase';
 import './Menu.css'
 
 function Menu () {
+    const { addToCart } = useCart();
     const [menuList, setMenuList] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -28,7 +30,7 @@ function Menu () {
             <p className="menu-item-price">Price: ${item.price}</p>
             <img className="menu-item-image" src={item.imageuri} alt={item.name} />
             <p className="menu-item-description">{item.description}</p>
-            <button className="menu-item-button">Add to Cart</button>
+            <button className="menu-item-button" onClick={() => addToCart(item)}>Add to Cart</button>
         </div>
     ));
     
