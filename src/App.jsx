@@ -8,7 +8,7 @@ import AboutUs from './views/AboutUs/AboutUs'
 import Cart from './views/Cart/Cart'
 import ContactUs from './views/ContactUs/ContactUs'
 import Login from './views/Login/Login'
-import Signup from './views/Signup/Signup'
+import SignUp from './views/SignUp/Signup'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword'
 import ClientAdmin from './views/ClientAdmin/ClientAdmin';
 import LandingPage from './views/LandingPage/LandingPage';
@@ -17,12 +17,13 @@ import OrderHistory from './views/OrderHistory/OrderHistory';
 import OrderTracker from './views/OrderTracker/OrderTracker';
 import { AuthProvider } from './contexts/authContext';
 import { CartProvider } from './utils/CartContext';
+import Reservations from './views/Reservation/Reservation';
 
 const App = () => {
   const location = useLocation();
   
   // Determine if NavBar should be shown
-  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker' ].includes(location.pathname);
+  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker','/reservations' ].includes(location.pathname);
   const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin',].includes(location.pathname);
 
   return (
@@ -37,7 +38,7 @@ const App = () => {
           <Route path="/ClientManagement" element={<ClientManagement />} />
           <Route path="/MenuItem" element={<ClientMenuItem />} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup/>} />
+          <Route path="/signup" element={<SignUp/>} />
           <Route path="/forgot-password" element={<ForgotPassword/>} />  
           <Route path="/menu" element ={<Menu/>} />
           <Route path="/about-us" element={<AboutUs/>} />
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/contact-us" element={<ContactUs/>} />
           <Route path ="/order-history" element={<OrderHistory/>} />
           <Route path ="/order-tracker" element={<OrderTracker/>} />
+          <Route path ="/reservations" element={<Reservations/>} />
         </Routes>
         </CartProvider>
       </AuthProvider>

@@ -1,0 +1,55 @@
+
+
+.reservation-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;  /* Using viewport height to make it take the full height of the viewport */
+    width: 100%; 
+}
+
+.reservation-section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 1px;
+    box-shadow: 0 4px 8px rgba(70, 213, 98, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+
+.input{
+    width: 583px;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 1px;
+    border: 1px solid #ccc;
+    display: block;
+  }
+
+.input::placeholder{
+    Color:gray;
+  }
+
+.reservation-section lable{
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+.date-input{
+    width:400px;
+    color:gray;
+    background-color: rgb(255, 248, 240);
+    text-align:center;
+    border:none;
+    font-size: 20px;
+    padding-left: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+  
+::-webkit-calendar-picker-indicator{
+    background-color: rgb(85, 110, 31);
+    color:aliceblue;
+  }
