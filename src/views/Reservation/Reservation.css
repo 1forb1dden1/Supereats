@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+  align-items: center;
     height: 80vh;  /* Using viewport height to make it take the full height of the viewport */
     width: 100%; 
 }
