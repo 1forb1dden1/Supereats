@@ -17,12 +17,21 @@ function ClientAdmin() {
                         Edit Menu Item
                     </button>
                 </Link>
+                <Link to="/manage-employee" style={{ textDecoration: 'none' }}>
+                    <button style={{ margin: '10px', padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
+                        Manage Employees
+                    </button>
+                </Link>
             </div>
-            <p>The Create new Menu Item functionality will allow the administrator to create a new menu item to their pleasing. 
+            <p>The <strong>Create new Menu Item</strong> functionality will allow the administrator to create a new menu item to their pleasing. 
             <br/>It requires three paramaters (1)Title/Name, (2)Price, (3)Description of the item, and (4)An image of the item.</p>
             <br/>
-            <p>The Edit Menu Item allows the administrator to edit a pre-existing menu item on the website. It allows them to edit<br/>
+            <p>The <strong>Edit Menu Item</strong> allows the administrator to edit a pre-existing menu item on the website. It allows them to edit<br/>
             any parameter for the menu items including the (1)Title/Name, (2)Price, (3)Description of the item, and (4)An image of the item.</p>
+            <br/>
+            <p>The <strong>Manage Employee page</strong> allows the administrator to manage information relating to both chefs & delivery workers.<br/>
+            The Administrator can perform multiple actions including (1)Pay Cut, (2)Pay Increase, (3)Promote, (4)Fire. <br/>
+            </p>
         </div>
     );
 }

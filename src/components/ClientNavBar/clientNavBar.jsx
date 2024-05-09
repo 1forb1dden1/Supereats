@@ -16,6 +16,9 @@ function ClientNavBar() {
                 <li className="nav-item">
                     <Link to="/MenuItem" className="nav-link">Edit Menu Item</Link>
                 </li>
+                <li className="nav-item">
+                    <Link to="/manage-employee" className="nav-link">Manage Employees</Link>
+                </li>
             </ul>
         </div>
     </nav>

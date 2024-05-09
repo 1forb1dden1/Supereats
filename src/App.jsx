@@ -8,23 +8,26 @@ import AboutUs from './views/AboutUs/AboutUs'
 import Cart from './views/Cart/Cart'
 import ContactUs from './views/ContactUs/ContactUs'
 import Login from './views/Login/Login'
-import SignUp from './views/SignUp/Signup'
+import Signup from './views/Signup/Signup'
 import ForgotPassword from './views/ForgotPassword/ForgotPassword'
 import ClientAdmin from './views/ClientAdmin/ClientAdmin';
 import LandingPage from './views/LandingPage/LandingPage';
 import Menu from './views/Menu/Menu';
 import OrderHistory from './views/OrderHistory/OrderHistory';
 import OrderTracker from './views/OrderTracker/OrderTracker';
+import Reservation from './views/Reservation/Reservation'
+import ManageEmployeePage from './views/ManageEmployee/ManageEmployee'
+import ManageDeliveryGuyPage from './views/ManageDeliveryGuy/ManageDeliveryGuy'
+import ManageChefPage from './views/ManageChef/ManageChef'
 import { AuthProvider } from './contexts/authContext';
 import { CartProvider } from './utils/CartContext';
-import Reservations from './views/Reservation/Reservation';
 
 const App = () => {
   const location = useLocation();
   
   // Determine if NavBar should be shown
-  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker','/reservations' ].includes(location.pathname);
-  const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin',].includes(location.pathname);
+  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker', '/reservations' ].includes(location.pathname);
+  const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin', '/manage-employee', '/manage-delivery-guy', '/manage-chef', ].includes(location.pathname);
 
   return (
     <div>
@@ -38,7 +41,8 @@ const App = () => {
           <Route path="/ClientManagement" element={<ClientManagement />} />
           <Route path="/MenuItem" element={<ClientMenuItem />} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<SignUp/>} />
+          <Route path="/signup" element={<Signup/>} />
+          <Route path ="/reservations" element={<Reservation/>} />
           <Route path="/forgot-password" element={<ForgotPassword/>} />  
           <Route path="/menu" element ={<Menu/>} />
           <Route path="/about-us" element={<AboutUs/>} />
@@ -46,7 +50,10 @@ const App = () => {
           <Route path="/contact-us" element={<ContactUs/>} />
           <Route path ="/order-history" element={<OrderHistory/>} />
           <Route path ="/order-tracker" element={<OrderTracker/>} />
-          <Route path ="/reservations" element={<Reservations/>} />
+
+          <Route path ="/manage-employee" element={<ManageEmployeePage/>} />
+          <Route path ="/manage-delivery-guy" element={<ManageDeliveryGuyPage/>} />
+          <Route path ="/manage-chef" element={<ManageChefPage/>} />
         </Routes>
         </CartProvider>
       </AuthProvider>

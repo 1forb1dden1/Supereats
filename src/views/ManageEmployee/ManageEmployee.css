@@ -1,0 +1,57 @@
+.manage-container {
+    background-color: white;
+    height: 100vh;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    border-radius: 10px;
+}
+
+    .manage-container h1 {
+        color: darkolivegreen;
+        font-size: 40px;
+        padding-top:70px;
+    }
+
+    .manage-container h2 {
+        color: darkolivegreen;
+        font-size: 20px;
+    }
+
+.manage-btns {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .manage-chef-btn {
+        margin-top: 40px;
+        font-family: 'pacifico', cursive;
+        width: 100%;
+        height: 200px;
+        background-color: darkolivegreen;
+        border-radius: 10px;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 30px;
+        border-color:transparent;
+    }
+    .manage-deliveryguy-btn {
+        font-family: 'pacifico', cursive;
+        width: 100%;
+        height: 200px;
+        background-color: darkolivegreen;
+        border-radius: 10px;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 30px;
+        border-color: transparent;
+    }
+
+    .manage-chef-btn:hover,
+    .manage-deliveryguy-btn:hover {
+        background-color: white;
+        color: darkolivegreen;
+    }

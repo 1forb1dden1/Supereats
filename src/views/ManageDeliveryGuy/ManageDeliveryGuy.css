@@ -1,0 +1,131 @@
+.managedeliveryguy-container {
+    background-color: white;
+    height: 150vh;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    border-radius: 10px;
+    padding-top: 50px;
+}
+
+    .deliveryguy-profiles {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        margin-top: 100px;
+    }
+
+        .deliveryguy-one,
+        .deliveryguy-two,
+        .deliveryguy-three,
+        .deliveryguy-four {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .deliveryguy-one.flipped,
+        .deliveryguy-two.flipped,
+        .deliveryguy-three.flipped,
+        .deliveryguy-four.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card1-front,
+        .card1-back,
+        .card2-front,
+        .card2-back,
+        .card3-front,
+        .card3-back,
+        .card4-front,
+        .card4-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            background-color: #D6E0D9;
+        }
+
+        .card1-front img,
+        .card2-front img,
+        .card3-front img,
+        .card4-front img {
+            width: 175px;
+            height: 175px;
+            border-radius: 100px;
+            text-align: center;
+            margin-left: 80px;
+            margin-top: 30px;
+        }
+
+        .card1-front h1,
+        .card2-front h1,
+        .card3-front h1,
+        .card4-front h1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .card1-front p,
+        .card2-front p,
+        .card3-front p,
+        .card4-front p {
+            width: 100%;
+            text-align: center;
+        }
+
+        .likes-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            height: 30px;
+        }
+
+        .likes-container img {
+            width: 40px;
+            height: 40px;
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+
+        .likes-container p {
+            font-size: 30px;
+            margin-left: -20px;
+            margin-top: 10px;
+        }
+
+        .card1-back,
+        .card2-back,
+        .card3-back,
+        .card4-back {
+            transform: rotateY(180deg);
+        }
+
+        .card1-back h2,
+        .card2-back h2,
+        .card3-back h2,
+        .card4-back h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .card1-back button,
+        .card2-back button,
+        .card3-back button,
+        .card4-back button {
+            width: 300px;
+            margin-left: 15px;
+            background-color: #D6E0D9;
+            border-color: black;
+            padding: 5px;
+            border-radius: 40px;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            margin-bottom: 10px;
+        }
