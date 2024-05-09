@@ -1,6 +1,6 @@
 .signupPage {
     display: flex;
-    height: 100vh;
+    height: 80vh;
     font-family: Arial, sans-serif;
     flex-direction: row;
 }
@@ -15,7 +15,7 @@
 
 .signupContainer h1 {
     font-size: 35px;
-    padding-bottom: 80px;
+    padding-bottom: 10px;
     color: darkolivegreen;
     font-style: italic;
 }
@@ -43,7 +43,9 @@ form select {
     border-radius: 5px;
     box-sizing: border-box;
 }
-
+form input[type="password"]{
+    margin-bottom: 35px;
+}
 form button {
     width: 100%;
     padding: 10px;

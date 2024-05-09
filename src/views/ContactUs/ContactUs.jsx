@@ -45,23 +45,27 @@ function ContactUs() {
     };
 
     return (
+        <div className="ContactUs-page">
         <div className="ContactUs-container">
+            <h1>Contact us</h1>
+            <h2>Give us your feedback</h2>
             <form onSubmit={handleSubmit} className="enter-section">
                 <input type="hidden" name="access_key" value="a2efa853-d079-44a2-bdf6-bd4cdd803d0c"/>
                 
                 <label htmlFor="Name">Name</label>
-                <input name="Name" placeholder="Your Name" className="Input" required/>
+                <input name="Name" placeholder="Your Name" className="Contactus-Input" required/>
 
                 <label htmlFor="Email">Email</label>
-                <input name="Email" placeholder="Your Email" className="Input" required/>
+                <input name="Email" placeholder="Your Email" className="Contactus-Input" required/>
                 <label htmlFor="Message">Message</label>
 
-                <input name="Message" placeholder="Give us your thoughts!" className="Input" required/>  
+                <input name="Message" placeholder="Give us your thoughts!" className="Contactus-Input" required/>  
                 <button className="sub-button" type="submit" disabled={isSubmitting}>
                     {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
             </form>
             {message && <div className="feedback-message">{message}</div>}
+        </div>
         </div>
     );
 }

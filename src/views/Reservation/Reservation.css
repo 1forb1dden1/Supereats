@@ -1,30 +1,38 @@
-
-
-.reservation-container{
+.Reservation-page{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;  /* Using viewport height to make it take the full height of the viewport */
-    width: 100%; 
+    height: 80vh;
+}
+
+.reservation-container{
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 1px;
+  box-shadow: 0 4px 8px rgba(70, 213, 98, 0.1);
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-container h1,h2{
+  text-align: center;
 }
 
 .reservation-section{
-    background-color: white;
-    padding: 20px;
     border-radius: 1px;
-    box-shadow: 0 4px 8px rgba(70, 213, 98, 0.1);
     width: 100%;
     max-width: 600px;
   }
 
-.input{
-    width: 583px;
-    padding: 8px;
-    margin: 10px 0;
-    border-radius: 1px;
-    border: 1px solid #ccc;
-    display: block;
+.reservation-input{
+  width: 97%;
+  padding: 8px;
+  margin: 12px 0;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  display: block;
   }
 
 .input::placeholder{
@@ -33,18 +41,19 @@
 
 .reservation-section lable{
     color:rgb(0, 0, 0);
-    font-size: 20px;
+
     font-family: 'Times New Roman', Times, serif;
   }
 
 .date-input{
-    width:400px;
+    width:100%;
+ 
     color:gray;
     background-color: rgb(255, 248, 240);
     text-align:center;
     border:none;
     font-size: 20px;
-    padding-left: 30px;
+ 
     font-family: 'Times New Roman', Times, serif;
 }
 

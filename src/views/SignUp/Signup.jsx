@@ -49,6 +49,8 @@ function Signup() {
                         placeholder="Password"
                         required
                     />
+                    {
+                    /*
                     <label htmlFor="user">Choose User</label>
                     <select
                         name="college"
@@ -60,6 +62,8 @@ function Signup() {
                         <option value="">Customer</option>
                         <option value="">Surfer</option>
                     </select>
+                    */
+                    }
                     <button type="submit">Sign Up</button>
                 </form>
             </div>
