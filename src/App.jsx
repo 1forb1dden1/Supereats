@@ -19,7 +19,7 @@ import Reservation from './views/Reservation/Reservation'
 import ManageEmployeePage from './views/ManageEmployee/ManageEmployee'
 import ManageDeliveryGuyPage from './views/ManageDeliveryGuy/ManageDeliveryGuy'
 import ManageChefPage from './views/ManageChef/ManageChef'
-import { AuthProvider } from './contexts/authContext';
+import { useAuth, AuthProvider } from './contexts/authContext';
 import { CartProvider } from './utils/CartContext';
 
 const App = () => {
@@ -28,6 +28,7 @@ const App = () => {
   // Determine if NavBar should be shown
   const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker', '/reservations' ].includes(location.pathname);
   const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin', '/manage-employee', '/manage-delivery-guy', '/manage-chef', ].includes(location.pathname);
+  
 
   return (
     <div>

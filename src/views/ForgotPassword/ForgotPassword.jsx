@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../ForgotPassword/ForgotPassword.css'
+import { resetPassword } from "../../../firebase/auth";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
+  const [notice, setNotice] = useState("");
   const [resetRequested, setResetRequested] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setResetRequested(true); 
-    }, 2000); 
-  };
+    try {
+      await resetPassword(email);
+      console.log("Reset Password link sent to:", email);
+      setTimeout(() => {
+        setResetRequested(true); 
+      }, 100);
+    } catch{
+      setNotice("Email not found.");
+    }
+  }
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -23,6 +31,11 @@ function ForgotPassword() {
     <div className="forgotPasswordPage">
       <div className="forgotPasswordContainer">
         <h1>Forgot Password?</h1>
+        { "" !== notice &&
+          <div className = "alert alert-warning" role = "alert">
+              { notice }    
+          </div>
+        }
         {!resetRequested ? (
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>

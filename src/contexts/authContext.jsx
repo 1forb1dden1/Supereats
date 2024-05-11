@@ -13,14 +13,16 @@ export function AuthProvider({children}){
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [loading, setLoading] = useState(true); 
 
+    // when authentication state is changed(ie. user logs in or out)
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, initializeUser);
         return unsubscribe;
     }, [])
 
+
     async function initializeUser(user){
         if (user){
-            setCurrentUser({... user });
+            setCurrentUser(user);
             setUserLoggedIn(true);
         }
         else{

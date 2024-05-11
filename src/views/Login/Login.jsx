@@ -1,34 +1,51 @@
-import React, { useState } from "react";
+import { useAuth } from "../../contexts/authContext";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../../firebase/auth";
 import "../Login/Login.css";
 import Navbar from '../../components/Navbar/Navbar';
 
-function Login() {
+const Login = () => {
+  const userLoggedIn = useAuth();
+  
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [notice, setNotice] = useState("");
 
-  const navigate = useNavigate();
-
-  const handleLogin = (e) => {
+  // handle form for login
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(email, password);
-  };
+
+    try {
+      await loginUser(email, password);
+      console.log("Successfully logged in as:", email);
+      navigate("/");
+    } catch{
+      setNotice("Invaild Credentials.");
+    }
+  }
 
   const handleSignupClick = () => {
     navigate("/signup");
-  };
+  }
 
   const handleForgotPasswordClick = () => {
     navigate("/forgot-password");
-  };
+  }
 
   return (
     <>
     <div className="loginPage">
       <div className="loginContainer">
         <h1 className="pacifico-regular">SuperEats</h1>
+        { "" !== notice &&
+          <div className = "alert alert-warning" role = "alert">
+              { notice }    
+          </div>
+        }       
         <form onSubmit={handleLogin}>
-          <label htmlFor="email">Username</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"

@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore, doc, setDoc, collection, addDoc, updateDoc, getDocs, deleteDoc } from "firebase/firestore"; // Import getFirestore from the Firebase SDK
 import { deleteObject, getStorage, ref } from "firebase/storage";
-import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -15,13 +15,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const firestore = getFirestore();
 const storage = getStorage();
 const storageRef = ref(storage);
 const imagesRef = ref(storage, 'images');
-const auth = getAuth(app);
-
-
 
 
 /*Edit Menu Item in FireStore*/
