@@ -1,7 +1,7 @@
 import { useAuth } from "../../contexts/authContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../../firebase/auth";
+import { loginUser, doSignOut } from "../../../firebase/auth";
 import "../Login/Login.css";
 import Navbar from '../../components/Navbar/Navbar';
 
@@ -19,21 +19,22 @@ const Login = () => {
     navigate("/")
   }
 */
+
   // handle form for login
   const handleLogin = async (e) => {
     e.preventDefault();
   
     try {
-      await loginUser(email, password);
       console.log("Successfully logged in as:", email);
       navigate("/");
+      await loginUser(email, password);
     } catch{
       setNotice("Invaild Credentials.");
     }
   }
 
   const handleSignupClick = () => {
-    navigate("/signup");
+    doSignOut();
   }
 
   const handleForgotPasswordClick = () => {
