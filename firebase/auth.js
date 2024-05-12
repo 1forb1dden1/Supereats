@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import { set } from "firebase/database";
-
+import * as firebase from './firebase'
 
 export const createUser = async (email, password) => {
     console.log("User created with:", email, ":", password)

@@ -22,6 +22,16 @@ const storage = getStorage();
 const storageRef = ref(storage);
 const imagesRef = ref(storage, 'images');
 
+/*Add MenuItem to FireStore*/
+export async function addANewMenuItem (name: string, price: number, description: string, imageuri: string) {
+  const newDoc = addDoc(collection(firestore, 'menuItem'), {
+    name: name,
+    price: price,
+    description: description,
+    imageuri: imageuri,
+  })
+  console.log(`Your doc was created`)
+}
 
 /*Edit Menu Item in FireStore*/
 export function editAMenuItem(dir: string, name: string, price: number, description: string, imageuri: string) {
@@ -35,20 +45,7 @@ export function editAMenuItem(dir: string, name: string, price: number, descript
   updateDoc(doc(firestore, 'menuItem/' + dir), docData);
 }
 
-
-
-/*Add MenuItem to FireStore*/
-export async function addANewMenuItem (name: string, price: number, description: string, imageuri: string) {
-
-  const newDoc = addDoc(collection(firestore, 'menuItem'), {
-    name: name,
-    price: price,
-    description: description,
-    imageuri: imageuri,
-  })
-  console.log(`Your doc was created`)
-}
-
+/**/
 export const getMenuItems = async () => {
   const colRef = collection(firestore, 'menuItem');
   const snapshot = await getDocs(colRef);
@@ -66,5 +63,27 @@ export async function deleteMenuItem(collectionID: string, docID: string) {
   }
 }
 
+export async function addANewUser (email: string, password: string){
+  const newDoc = addDoc(collection(firestore, 'users'), {
+    email: email,
+    password: password,
+  })
+  console.log(`Your doc was created`)
+}
+
+export async function editAUser(dir: string, email: string, password: string){
+  const docData = {
+    email: email,
+    password: password
+  }
+  updateDoc(doc(firestore, 'users/' + dir), docData);
+}
+
+export const getUsers = async () => {
+  const colRef = collection(firestore, 'users');
+  const snapshot = await getDocs(colRef);
+  const users = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  return users;
+};
 
 export { app, auth };
