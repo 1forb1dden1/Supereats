@@ -7,16 +7,22 @@ import Navbar from '../../components/Navbar/Navbar';
 
 const Login = () => {
   const userLoggedIn = useAuth();
+  const currentUser = useAuth();
   
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [notice, setNotice] = useState("");
 
+/*  if(userLoggedIn){
+    console.log("logged in as", currentUser.email);
+    navigate("/")
+  }
+*/
   // handle form for login
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
       await loginUser(email, password);
       console.log("Successfully logged in as:", email);

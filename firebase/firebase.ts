@@ -8,6 +8,7 @@ import { deleteObject, getStorage, ref } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyCcf11fN5ZbQppoK9diuYRdXiM6vv3el-Y",
   authDomain: "supereats-3c1b9.firebaseapp.com",
+  databaseURL: "https://supereats-3c1b9-default-rtdb.firebaseio.com",
   projectId: "supereats-3c1b9",
   storageBucket: "supereats-3c1b9.appspot.com",
   messagingSenderId: "972136108227",
