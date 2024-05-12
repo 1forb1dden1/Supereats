@@ -1,8 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { doSignOut } from '../../../firebase/auth'; // Import doSignOut function
+import { auth } from '../../../firebase/firebase';
 import '../Navbar/Navbar.css';
 
 function NavBar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+
+    return () => unsubscribe()
+  }, []);
+
   return (
     <nav className="navbar">
       <div className="container">
@@ -12,7 +25,7 @@ function NavBar() {
           </Link>
         </div>
         <ul className="nav-links">
-        <li>
+          <li>
             <Link to="/about-us">About Us</Link>
           </li>
           <li>
@@ -27,8 +40,11 @@ function NavBar() {
           <li>
             <Link to="/contact-us">Contact Us</Link>
           </li>
+
           <li>
-            <Link to="/login">Login</Link>
+            {!isLoggedIn && <Link to="/login">Login</Link>}
+            {isLoggedIn && (<Link to="/"><button onClick={() => {doSignOut().then(() => {{navigate('/login')}});}}>Logout</button></Link>
+            )}
           </li>
         </ul>
       </div>

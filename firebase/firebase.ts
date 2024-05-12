@@ -66,6 +66,5 @@ export async function deleteMenuItem(collectionID: string, docID: string) {
   }
 }
 
-deleteMenuItem("menuItem", "3XiIGbzc6xBHKDDl69Zl");
 
 export { app, auth };

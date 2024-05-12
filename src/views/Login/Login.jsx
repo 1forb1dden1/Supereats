@@ -1,24 +1,16 @@
 import { useAuth } from "../../contexts/authContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser, doSignOut } from "../../../firebase/auth";
+import { loginUser } from "../../../firebase/auth";
 import "../Login/Login.css";
 import Navbar from '../../components/Navbar/Navbar';
 
 const Login = () => {
-  const userLoggedIn = useAuth();
-  const currentUser = useAuth();
   
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [notice, setNotice] = useState("");
-
-/*  if(userLoggedIn){
-    console.log("logged in as", currentUser.email);
-    navigate("/")
-  }
-*/
 
   // handle form for login
   const handleLogin = async (e) => {
@@ -34,7 +26,7 @@ const Login = () => {
   }
 
   const handleSignupClick = () => {
-    doSignOut();
+    navigate("/signup");
   }
 
   const handleForgotPasswordClick = () => {
