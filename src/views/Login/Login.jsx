@@ -17,8 +17,12 @@ const Login = () => {
     e.preventDefault();
   
     try {
-      console.log("Successfully logged in as:", email);
+      if(email == "admin@gmail.com"){
+      navigate("/admin");
+      } else {
       navigate("/");
+      }
+      console.log("Successfully logged in as:", email);
       await loginUser(email, password);
     } catch{
       setNotice("Invaild Credentials.");

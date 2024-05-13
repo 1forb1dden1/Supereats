@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import './clientNavBar.css';
+import { doSignOut } from '../../../firebase/auth'; // Import doSignOut function
 
 function ClientNavBar() {
     return (
@@ -18,6 +19,9 @@ function ClientNavBar() {
                 </li>
                 <li className="nav-item">
                     <Link to="/manage-employee" className="nav-link">Manage Employees</Link>
+                </li>
+                <li>
+                <Link to="/login"><button onClick={() => doSignOut()}>Logout</button></Link>
                 </li>
             </ul>
         </div>
