@@ -23,9 +23,9 @@ function AboutUs() {
             <div className="history-text">
               <h1>OUR HISTORY</h1>
               <p>
-                Established in [Year], [Restaurant Name] has been a cornerstone of
-                culinary excellence in [Location]. From our humble beginnings as a
-                small family-owned eatery to becoming a beloved destination for food
+                Established in 2020, Supereats has been a cornerstone of
+                culinary excellence in Manhattan. From our humble beginnings as a
+                small eatery to becoming a beloved destination for food
                 enthusiasts, our journey has been marked by passion, innovation, and
                 a commitment to quality.
               </p>
