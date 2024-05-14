@@ -19,6 +19,7 @@ import Reservation from './views/Reservation/Reservation'
 import ManageEmployeePage from './views/ManageEmployee/ManageEmployee'
 import ManageDeliveryGuyPage from './views/ManageDeliveryGuy/ManageDeliveryGuy'
 import ManageChefPage from './views/ManageChef/ManageChef'
+import Reviews from './views/Review/Review';
 import { useAuth, AuthProvider } from './contexts/authContext';
 import { CartProvider } from './utils/CartContext';
 
@@ -26,7 +27,7 @@ const App = () => {
   const location = useLocation();
   
   // Determine if NavBar should be shown
-  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker', '/reservations' ].includes(location.pathname);
+  const showNavBar = ['/login', '/signup', '/forgot-password', '/about-us', '/cart', '/contact-us', '/', '/menu', '/order-history', '/order-tracker', '/reservations','/reviews'].includes(location.pathname);
   const showClientNavBar = ['/clientManagement', '/MenuItem', '/admin', '/manage-employee', '/manage-delivery-guy', '/manage-chef', ].includes(location.pathname);
   
 
@@ -51,7 +52,7 @@ const App = () => {
           <Route path="/contact-us" element={<ContactUs/>} />
           <Route path ="/order-history" element={<OrderHistory/>} />
           <Route path ="/order-tracker" element={<OrderTracker/>} />
-
+          <Route path ="/reviews" element={<Reviews/>} />
           <Route path ="/manage-employee" element={<ManageEmployeePage/>} />
           <Route path ="/manage-delivery-guy" element={<ManageDeliveryGuyPage/>} />
           <Route path ="/manage-chef" element={<ManageChefPage/>} />

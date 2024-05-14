@@ -1,0 +1,67 @@
+*{
+    margin:0px;
+    box-sizing: border-box;
+}
+
+.Review-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Header{
+    width: '100%';  
+    background-color:#D6E0D9;
+    text-align: Center;
+    padding:35px;
+}
+
+.Review-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+.Review-box{
+    width:500px;
+    background-color: #D6E0D9;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    flex: 1;
+    margin: 15px; 
+    cursor:pointer;
+}
+
+.imgSetting{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin-right:10p;
+    object-fit: cover;
+}
+
+.review-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.userName{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-container{
+    font-family: 'Times New Roman', Times, serif;
+}
+

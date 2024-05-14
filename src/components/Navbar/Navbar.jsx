@@ -41,6 +41,8 @@ function NavBar() {
             <Link to="/contact-us">Contact Us</Link>
           </li>
 
+          <li><Link to="/reviews">Reviews</Link></li>
+
           <li>
             {!isLoggedIn && <Link to="/login">Login</Link>}
             {isLoggedIn && (<Link to="/"><button onClick={() => {doSignOut().then(() => {{navigate('/login')}});}}>Logout</button></Link>
